@@ -1,0 +1,42 @@
+## Extended Description
+
+**CIE‑NG: Next‑Generation Cognitive Integrity Gateway** is a research‑grade prototype that enables safe, auditable, and verifiable orchestration of multiple AI assistants. It was designed to answer a simple question: *How can we enforce governance rules not through human oversight alone, but through code that runs before every assistant call and after every response?*
+
+The gateway implements **83 governance components** synthesised from a catalog of real‑world safety, security, and quality requirements. These include:
+
+- **Security** – canary token injection detection, instruction‑data separation, jailbreak phrase blacklisting.  
+- **Pre‑processing** – emotional language stripping (gilding removal), lexical term transformation with risk scoring.  
+- **Routing** – pragmatic scoping that classifies tasks as native, partial, or impossible per assistant capability.  
+- **Resource governance** – token budget governor that prevents context‑overflow and cost blowouts.  
+- **Prompt quality gates** – heuristic falsifiability checks for structured TPG packets (OBJECTIVE must be testable).  
+- **Three‑layer validation** – schema, executable, and evaluation validation (shallow but extensible).  
+- **Provenance** – automatic addition of citations, source hashes, and uncertainty decomposition (aleatoric/epistemic).  
+- **Audit & persistence** – veracity auditor that flags likely errors and omissions, plus a falsification database that logs every prediction with timestamp for later analysis.
+
+Unlike commercial orchestration tools (LangChain, Semantic Kernel, etc.), CIE‑NG focuses **not on performance or ease‑of‑use, but on governance transparency and falsifiability**. It deliberately exposes its limitations – keyword‑based checks, a stub dialectical resolver, synchronous execution – because these are research challenges, not product features.
+
+### Who should use this?
+
+- **Alignment researchers** studying runtime monitoring, scalable oversight, or contradiction detection.  
+- **Graduate students** needing a working baseline for multi‑assistant experiments (e.g., task routing, uncertainty quantification).  
+- **Policy & governance researchers** who want an executable example of what “technical guardrails” look like in code.  
+- **Educators** teaching LLM safety, multi‑agent systems, or AI governance.
+
+### What this is **not**
+
+- A production system – no authentication, rate limiting, retries, or high availability.  
+- A commercial product – non‑commercial license (CC BY‑NC 4.0).  
+- A complete solution – several components are heuristic stubs that you are encouraged to improve.
+
+### How to use it in research
+
+1. Clone the repository and run the regression tests to verify behaviour.  
+2. Replace the stub `_route_to_assistant` with real API calls to your models.  
+3. Experiment with modifying individual components – e.g., improve the falsifiability checker using a secondary LLM, or implement a real dialectical resolver via debate.  
+4. Run the gateway on a corpus of prompts and analyse the falsification log for failure modes.
+
+The project is intentionally lean: no heavy dependencies, no cloud lock‑in. It runs anywhere Python 3.9+ runs, including on a local machine with open‑source models via Ollama or vLLM.
+
+For a detailed walkthrough, see the **Quick Start** section in the README. For license terms, see the `LICENSE` file.
+
+**Built for intellectual exploration, not profit. Contributions from non‑commercial researchers are welcome.**

@@ -1,0 +1,3 @@
+# CIE‑NG research prototype
+# No mandatory runtime dependencies; pytest for regression testing
+pytest>=7.0.0
